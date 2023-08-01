@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <h1>Dados do Cliente</h1>
+    </div>
+    <div>
+        Adicionar Dados <br />
+        ID: <input id="idinput" type="number" max="2" maxlength="2" />
+        Nome: <input id="nomeinput" type="text" max="50" maxlength="50" />
+        <button id="btnAdicionar" onclick="adicionarRegistro()">Adicionar</button>
+    </div>
+    <div>
+        <table id="tbDados" border="1">
+            <tr>
+                <td>ID</td>
+                <td>Antony</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+
+    function adicionarRegistro() {
+        console.log("Adicionando");
+
+        var tb = document.getElementById("tbDados");
+
+        var nlinha = document.createElement("tr");
+        var coluna1 = document.createElement("td");
+        var coluna2 = document.createElement("td");
+        var codigotxt = document.getElementById("idinput").value;
+        var nometxt = document.getElementById("nomeinput").value;
+
+   
+        if (validarCampos(codigotxt) == true && validarCampos(nometxt) == true) {
+            coluna1.textContent = codigotxt;
+            coluna2.textContent = nometxt;
+            nlinha.appendChild(coluna1);
+            nlinha.appendChild(coluna2);
+            tb.appendChild(nlinha);
+            document.getElementById("idinput").value = "";
+            document.getElementById("nomeinput").value = "";
+        } else {
+            console.log("Falta");
+        }
+       
+
+    }
+
+    function validarCampos(conteudo) {
+        if (conteudo == "") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+</script>
+</html>
