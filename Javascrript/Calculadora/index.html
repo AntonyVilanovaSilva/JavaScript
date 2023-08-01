@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        body {
+            background-image: url("https://i.pinimg.com/originals/51/6f/b5/516fb53642fbca78f3ee5c7f2a213e1c.jpg");
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+
+        .box {
+            gap: 10px;
+            background: white;
+        
+           
+            height: 60vh;
+            width: 50vw;
+            margin: 20vh auto;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: wheat; width: 37vw; height: 40vh; display: flex; justify-content: center; align-items: center; flex-direction:column; margin-right: 120px;">
+        <div>
+            <h1>Calculadora</h1>
+        </div>
+        <div>
+            <div>
+                <br />
+                Salário: <input id="Salario" type="number" max="2" maxlength="2" />
+            </div>
+            <div>
+                <br />
+                Aliquota IRRF: <input id="AliquotaIRRF" type="number" max="2" maxlength="2" />
+            </div>
+            <div>
+                <br />
+                INSS: <input id="INSS" type="number" max="2" maxlength="2" />
+            </div>
+            <div>
+                <br />
+                Salário Liquido: <input id="SalarioLiquido" type="number" max="2" maxlength="2" />
+            </div>
+         
+        </div>
+        <br />
+        <div>
+            <button id="btnCalcular" onclick="Salario()">Calcular</button>
+            <button id="btnLimpar" onclick="Limpar()">Limpar</button>
+        </div>
+
+    </div>
+   
+</body>
+<script>
+    function Salario() {
+        var Salario = document.getElementById('Salario').value;
+        var AliquotaIRRF = document.getElementById('AliquotaIRRF').value;
+        var INSS = document.getElementById('INSS').value;
+        var SalarioLiquido = document.getElementById('SalarioLiquido').value;
+        a = Salario * (AliquotaIRRF / 100);
+        b = Salario * (INSS / 100);
+        c = a + b;
+        Resultado = Salario - c
+        document.getElementById('SalarioLiquido').value = Resultado
+        
+    }
+
+    function Limpar() {
+        var Salario = document.getElementById('Salario').value = ''
+        var AliquotaIRRF = document.getElementById('AliquotaIRRF').value = ''
+        var INSS = document.getElementById('INSS').value = ''
+        var SalarioLiquido = document.getElementById('SalarioLiquido').value = ''
+    }
+</script>
+</html>
