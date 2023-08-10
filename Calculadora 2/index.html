@@ -102,14 +102,49 @@
 </html>
 </body>
 <script>
-    let resultado = document.getElementById('resultado');
-    let operadorAnterior = null;
+    var resultadoanterior = false;
+    document.addEventListener("keydown", function (event) {
+
+        if (resultadoanterior == true) {
+            clean()
+            resultadoanterior = false; 
+        }
+
+        if (event.key >= "0" && event.key <= "9") {
+
+            var num = event.key;
+
+            resultado.innerHTML += num;
+        }
+        if (event.key == "+" && resultado.innerHTML == '' || event.key == "-" && resultado.innerHTML == '' || event.key == "*" && resultado.innerHTML == '' || event.key == "/" && resultado.innerHTML == '') {
+
+            return
+        }
+
+        if (event.key == "+" || event.key == "-" || event.key == "*" || event.key == "/") {
+
+            var num = event.key;
+            resultado.innerHTML += num;
+        }
+
+        
+
+        if (event.key == '=' || event.key == 'Enter') {
+            calcular();
+            resultadoanterior = true;
+        }
+
+        if (event.key == 'Backspace') {
+
+            resultado.innerHTML = resultado.innerHTML.slice(0, -1);
+        }
+    });
 
     function insert(num) {
         if (num === '+' || num === '-' || num === '*' || num === '/') {
             
             const ultimoCaractere = resultado.textContent.slice(-1);
-            if (ultimoCaractere === '+' || ultimoCaractere === '-' || ultimoCaractere === '*' || ultimoCaractere === '/') {
+            if (ultimoCaractere === '+' || ultimoCaractere === '-' || ultimoCaractere === '*') {
                 resultado.textContent = resultado.textContent.slice(0, -1);
             }
             operadorAnterior = num;
