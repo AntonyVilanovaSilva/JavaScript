@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Semaforo</title>
+    <style>
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#Semaforo{
+    background-color: rgb(10, 15, 24);
+    box-shadow: 5px 5px 10px rgb(59, 56, 56);    border-radius: 5%;
+    height: 70%;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10vh auto;
+    flex-direction: column;
+}
+
+.buttons{
+    width: 70%;
+    height: 100%;
+    display: block;
+    margin-left: 876px;
+    color:blue;
+}
+
+#Vermelho{
+    border-radius: 50%;
+    width: 90%;
+    height: 30%;
+    margin: 10px;
+    margin-top: 20px;
+    background-color: rgb(148, 3, 3);
+}
+
+#Amarelo{
+    border-radius: 50%;
+    width: 90%;
+    height: 30%;
+    margin: 10px;
+    background-color: rgb(165, 165, 0);
+}
+
+#Verde{
+    border-radius: 50%;
+    width: 90%;
+    height: 30%;
+    margin: 10px;
+    background-color: rgba(35, 59, 35, 0.76);
+}
+
+    </style>
+</head>
+<body>
+  
+        <div  id="Semaforo">
+            <div id="Vermelho">Vermelho</div>
+            <div id="Amarelo">Amarelo</div>
+            <div id="Verde">Verde</div>
+        </div>
+
+        <div class="buttons">
+            <button type="button" onclick="Automatico()">Automatico</button>
+            <button type="button" onclick="Parar()">Pausar</button>
+        </div>
+</body>
+<script>
+    var Vermelho = document.getElementById("Vermelho") 
+    var Amarelo= document.getElementById("Amarelo") 
+    var Verde = document.getElementById("Verde") 
+
+function Automatico(){
+setTimeout(() => {
+    Vermelho.style.background ='red'
+}, "1000");
+
+setTimeout(() => {
+    Vermelho.style.background ='rgb(148, 3, 3)'
+    Amarelo.style.background ='yellow'
+}, "1500");
+
+setTimeout(() => {
+    Amarelo.style.background ='rgb(165, 165, 0)'
+    Verde.style.background ='green'
+}, "2000");
+}
+
+function Pausar(){
+
+}
+</script>
+</html>
